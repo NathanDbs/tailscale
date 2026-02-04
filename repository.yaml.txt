@@ -1,0 +1,3 @@
+name: tailscale hass.io addons
+url: "https://github.com/NathanDbs/tailscale"
+maintainer: NathanDbs
