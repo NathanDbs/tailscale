@@ -5,6 +5,7 @@
 # S6 Overlay stage2 hook to customize services
 # ==============================================================================
 
+bashio::log.info "Line 1"
 declare options
 declare proxy funnel proxy_and_funnel_port
 
