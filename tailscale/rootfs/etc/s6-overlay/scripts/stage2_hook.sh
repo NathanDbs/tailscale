@@ -16,10 +16,10 @@ function try {
     declare -gx TRY_ERROR=$?
     set -e
 }
-
+bashio::log.info "Line 19"
 # Load add-on options, even deprecated one to upgrade
 options=$(bashio::addon.options)
-
+bashio::log.info "Line 23"
 # Upgrade configuration from 'proxy', 'funnel' and 'proxy_and_funnel_port' to 'share_homeassistant' and 'share_on_port'
 # This step can be removed in a later version
 proxy=$(bashio::jq "${options}" '.proxy | select(.!=null)')
@@ -35,6 +35,7 @@ if bashio::var.true "${proxy}"; then
         bashio::log.info "Successfully migrated proxy and funnel options to share_homeassistant: serve"
     fi
 fi
+bashio::log.info "Line 38"
 # Upgrade to share_on_port
 if bashio::var.has_value "${proxy_and_funnel_port}"; then
     try bashio::addon.option 'share_on_port' "^${proxy_and_funnel_port}"
